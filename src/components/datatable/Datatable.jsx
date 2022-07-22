@@ -1,15 +1,30 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { columns, rows } from "./data";
+import { userColumns, userRows } from "./datatablesource";
 
 const Datatable = () => {
+  const actionColumn = [
+    {
+      field: "action",
+      headerName: "Action",
+      width: 150,
+      renderCell: () => {
+        return (
+          <div className="cellAction">
+            <div className="viewButton">View</div>
+            <div className="deleteButton">Delete</div>
+          </div>
+        );
+      },
+    },
+  ];
   return (
     <div className="datatable">
       <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
+        rows={userRows}
+        columns={userColumns.concat(actionColumn)}
+        pageSize={9}
+        rowsPerPageOptions={[9]}
         checkboxSelection
       />
     </div>
