@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
@@ -16,25 +17,33 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <span className="logo">kobisonadmin</span>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <span className="logo">kobisonadmin</span>
+        </Link>
       </div>
       <hr />
       <div className="center">
         <ul>
           <p className="title">MAIN </p>
-          <li>
-            <DashboardIcon className="icon" />
-            <span className="dashboard">Dashboard</span>
-          </li>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <li>
+              <DashboardIcon className="icon" />
+              <span className="dashboard">Dashboard</span>
+            </li>
+          </Link>
           <p className="title">LISTS </p>
-          <li>
-            <PersonOutlineIcon className="icon" />
-            <span className="dashboard">Users</span>
-          </li>
-          <li>
-            <StoreIcon className="icon" />
-            <span className="dashboard">Products</span>
-          </li>
+          <Link to="/users" style={{ textDecoration: "none" }}>
+            <li>
+              <PersonOutlineIcon className="icon" />
+              <span className="dashboard">Users</span>
+            </li>
+          </Link>
+          <Link to="/products" style={{ textDecoration: "none" }}>
+            <li>
+              <StoreIcon className="icon" />
+              <span className="dashboard">Products</span>
+            </li>
+          </Link>
           <li>
             <CreditCardIcon className="icon" />
             <span className="dashboard">Orders</span>
